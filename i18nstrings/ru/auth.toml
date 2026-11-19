@@ -1,0 +1,18 @@
+# The login page's title and everything the handshake can refuse with.
+
+[page]
+title = "Вход в зал"
+
+[login]
+telegram_only = "Сюда входят только через Telegram."
+
+[tg]
+code_missing = "Этот код никто не ждёт. Начните заново."
+not_configured = "Вход через Telegram здесь не настроен."
+telegram_taken = "Этот Telegram уже привязан к другому пользователю."
+
+[username]
+format = "Имя пользователя — от 3 до 64 латинских букв, цифр и . _ -"
+
+[access]
+denied = "Эти тренировки видны только их владельцу."

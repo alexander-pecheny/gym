@@ -1,0 +1,77 @@
+/* gym's app layer over DopeUIKit's core.css. A Block is the kit's results
+   table, exactly as dope's Итог draws it (.results-table, .results-row,
+   .results-group-gap). This file only lets the page scroll, sizes the
+   columns and lets a long exercise name wrap. */
+
+/* core.css's .host clips the body for a fixed-height board. A plan is a page
+   and scrolls. */
+.plan-host {
+  overflow: visible;
+}
+
+/* The kit's match-main is a fixed-height board that clips. A plan is a page
+   that scrolls when it has to. Its padding stays the kit's. */
+.plan-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: auto;
+  min-height: calc(100dvh - var(--header-h));
+  overflow: visible;
+  padding-bottom: calc(var(--space-3-5) + env(safe-area-inset-bottom));
+}
+
+.plan-main > .muted {
+  overflow-wrap: anywhere;
+}
+
+/* The set columns are a tour column, 60px, on a phone too: the 48px of a
+   phone's place column splits "30 секунд" mid-word. As wide as the screen on a phone. On a desktop the sheet keeps the measure
+   of dope's Итог instead of stretching four numbers across the screen. */
+.plan-table {
+  /* core.css .results-tour-head: a tour column of dope's Итог. */
+  --plan-set-col: 60px;
+  width: 100%;
+  max-width: calc(var(--results-team-col) * 2 + var(--plan-set-col) * 4);
+  table-layout: fixed;
+}
+
+.plan-table .plan-set-col {
+  width: var(--plan-set-col);
+}
+
+/* A folded Block's one column: two set columns, enough for "3 × 30 секунд". */
+.plan-table .plan-repeat-col {
+  width: calc(var(--plan-set-col) * 2);
+}
+
+.plan-table thead .results-team-city {
+  font-weight: var(--fw-regular);
+}
+
+/* A name is read whole, so it wraps where a team name would fade. So do a
+   Block's title and a set ("30 секунд" goes onto two lines at the space). */
+.plan-table .plan-name,
+.plan-table .plan-set,
+.plan-table thead th.results-team-head {
+  white-space: normal;
+}
+
+.plan-table .plan-name > span:first-child,
+.plan-table thead .results-team-head > span:first-child {
+  display: block;
+}
+
+@media (max-width: 760px) {
+  /* dope's own phone values for the results table. They live in dope's layer
+     (dope/web/assets/static/styles.css), not in core.css. */
+  .plan-table th,
+  .plan-table td {
+    padding: 4px 6px;
+    font-size: var(--text-xs);
+  }
+
+  .plan-table .results-team-city {
+    font-size: var(--results-team-city-size-mobile);
+  }
+}

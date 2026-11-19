@@ -1,0 +1,10 @@
+# The training pages.
+
+site_name = "Зал"
+title_suffix = '{{.title}} — {{.site}}'
+error_title = "Ошибка"
+to_home = "К последней тренировке"
+all_sessions = "Все тренировки"
+empty = "В таблице тренера пока нет ни одной тренировки."
+stale = 'Таблица тренера не открылась, показываю копию от {{.when}}.'
+repeat = '{{.n}} × {{.reps}}'

@@ -1,0 +1,6 @@
+# What the HTTP edge says when something goes wrong.
+
+[error]
+bad_request = "Непонятный запрос."
+internal = "Что-то сломалось у нас. Попробуйте ещё раз."
+not_found = "Такой тренировки нет."

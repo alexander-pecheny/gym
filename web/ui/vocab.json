@@ -1,0 +1,30 @@
+{
+  "enums": {
+    "page-kind": {
+      "prefix": "Page",
+      "values": ["plan"]
+    }
+  },
+  "primitives": [
+    {
+      "name": "planblock",
+      "props": [{ "name": "title" }, { "name": "cols", "required": true }, { "name": "folded", "kind": "bare" }, { "name": "note" }],
+      "children": ["plangroup"]
+    },
+    {
+      "name": "plangroup",
+      "props": [],
+      "children": ["exercise"]
+    },
+    {
+      "name": "exercise",
+      "props": [{ "name": "name", "required": true }, { "name": "note" }, { "name": "repeat" }],
+      "children": ["setcell"]
+    },
+    {
+      "name": "setcell",
+      "props": [{ "name": "weight" }, { "name": "reps" }],
+      "children": "none"
+    }
+  ]
+}

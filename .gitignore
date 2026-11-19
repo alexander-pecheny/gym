@@ -1,0 +1,6 @@
+/gym-server
+*.test
+.env
+*.db
+*.db-*
+sheet.csv

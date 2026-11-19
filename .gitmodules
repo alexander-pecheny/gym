@@ -1,0 +1,3 @@
+[submodule "dopesuite"]
+	path = dopesuite
+	url = https://code.pecheny.me/pecheny/dopesuite.git

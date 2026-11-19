@@ -1,0 +1,30 @@
+# The unit gym runs under on vps-he (/etc/systemd/system/gym.service).
+# /var/lib/gym holds the accounts database and the last good copy of the
+# coach's sheet; /run/lock is where tgbot.AcquirePollLock takes its flock.
+
+[Unit]
+Description=gym
+After=network.target
+
+[Service]
+Type=simple
+User=gym
+Group=gym
+WorkingDirectory=/var/lib/gym
+EnvironmentFile=/etc/gym.env
+ExecStart=/opt/gym/gym-server
+Restart=on-failure
+RestartSec=2
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/gym /run/lock
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target
